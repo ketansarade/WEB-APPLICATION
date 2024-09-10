@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="theexkzv_ModelStoreContainer" CdmEntityContainer="theexkzv_Entities">
+    <EntitySetMapping Name="AdminTbls">
+      <EntityTypeMapping TypeName="theexkzv_Model.AdminTbl">
+        <MappingFragment StoreEntitySet="AdminTbl">
+          <ScalarProperty Name="ResetPasswordExpiry" ColumnName="ResetPasswordExpiry" />
+          <ScalarProperty Name="ResetPasswordToken" ColumnName="ResetPasswordToken" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UPdateTime" ColumnName="UPdateTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BiomatricFingerprintMappings">
+      <EntityTypeMapping TypeName="theexkzv_Model.BiomatricFingerprintMapping">
+        <MappingFragment StoreEntitySet="BiomatricFingerprintMapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BiomatricLogId" ColumnName="BiomatricLogId" />
+          <ScalarProperty Name="Hand" ColumnName="Hand" />
+          <ScalarProperty Name="FingerType" ColumnName="FingerType" />
+          <ScalarProperty Name="PositionOfFingerprint" ColumnName="PositionOfFingerprint" />
+          <ScalarProperty Name="FingerprintImage" ColumnName="FingerprintImage" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BiomatricHands">
+      <EntityTypeMapping TypeName="theexkzv_Model.BiomatricHand">
+        <MappingFragment StoreEntitySet="BiomatricHand">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Hand" ColumnName="Hand" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BloodGroupMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.BloodGroupMaster">
+        <MappingFragment StoreEntitySet="BloodGroupMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CityMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.CityMaster">
+        <MappingFragment StoreEntitySet="CityMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientInformations">
+      <EntityTypeMapping TypeName="theexkzv_Model.ClientInformation">
+        <MappingFragment StoreEntitySet="ClientInformation">
+          <ScalarProperty Name="AppoimentDate" ColumnName="AppoimentDate" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="VerificationToken" ColumnName="VerificationToken" />
+          <ScalarProperty Name="FristName" ColumnName="FristName" />
+          <ScalarProperty Name="RegisterdBy" ColumnName="RegisterdBy" />
+          <ScalarProperty Name="ReferalCode" ColumnName="ReferalCode" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="Biomatric" ColumnName="Biomatric" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ParentsName" ColumnName="ParentsName" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="Credits" ColumnName="Credits" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Handedness" ColumnName="Handedness" />
+          <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Referances" ColumnName="Referances" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="EvalutionType" ColumnName="EvalutionType" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ClientPhoto" ColumnName="ClientPhoto" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+          <ScalarProperty Name="Capturedby" ColumnName="Capturedby" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Deletedby" ColumnName="Deletedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsultantInformations">
+      <EntityTypeMapping TypeName="theexkzv_Model.ConsultantInformation">
+        <MappingFragment StoreEntitySet="ConsultantInformation">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FistName" ColumnName="FistName" />
+          <ScalarProperty Name="ConsultantId" ColumnName="ConsultantId" />
+          <ScalarProperty Name="Biomatric" ColumnName="Biomatric" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Usertype" ColumnName="Usertype" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConsultantImage" ColumnName="ConsultantImage" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DeleteBy" ColumnName="DeleteBy" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UPdateTime" ColumnName="UPdateTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EthnicityMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.EthnicityMaster">
+        <MappingFragment StoreEntitySet="EthnicityMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvaluationTypeMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.EvaluationTypeMaster">
+        <MappingFragment StoreEntitySet="EvaluationTypeMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EvalutionType" ColumnName="EvalutionType" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Deletedby" ColumnName="Deletedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenderMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.GenderMaster">
+        <MappingFragment StoreEntitySet="GenderMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inboxes">
+      <EntityTypeMapping TypeName="theexkzv_Model.inbox">
+        <MappingFragment StoreEntitySet="inbox">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UPdateTime" ColumnName="UPdateTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguagesMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.LanguagesMaster">
+        <MappingFragment StoreEntitySet="LanguagesMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NumberOfFingers">
+      <EntityTypeMapping TypeName="theexkzv_Model.NumberOfFinger">
+        <MappingFragment StoreEntitySet="NumberOfFinger">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumberOfFinger1" ColumnName="NumberOfFinger" />
+          <ScalarProperty Name="Hand" ColumnName="Hand" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PermissionMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.PermissionMaster">
+        <MappingFragment StoreEntitySet="PermissionMaster">
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PositionOfFingerprints">
+      <EntityTypeMapping TypeName="theexkzv_Model.PositionOfFingerprint">
+        <MappingFragment StoreEntitySet="PositionOfFingerprint">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PositionOfFingerprint1" ColumnName="PositionOfFingerprint" />
+          <ScalarProperty Name="NumberOfFinger" ColumnName="NumberOfFinger" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.RoleMaster">
+        <MappingFragment StoreEntitySet="RoleMaster">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleOfPermissionMappings">
+      <EntityTypeMapping TypeName="theexkzv_Model.RoleOfPermissionMapping">
+        <MappingFragment StoreEntitySet="RoleOfPermissionMapping">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.StateMaster">
+        <MappingFragment StoreEntitySet="StateMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EthnicityId" ColumnName="EthnicityId" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuperAdminTbls">
+      <EntityTypeMapping TypeName="theexkzv_Model.SuperAdminTbl">
+        <MappingFragment StoreEntitySet="SuperAdminTbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SuperAdmin" ColumnName="SuperAdmin" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UPdateTime" ColumnName="UPdateTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="synopses">
+      <EntityTypeMapping TypeName="theexkzv_Model.synopsis">
+        <MappingFragment StoreEntitySet="synopsis">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="summary" ColumnName="summary" />
+          <ScalarProperty Name="inbox_id" ColumnName="inbox_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_pincode">
+      <EntityTypeMapping TypeName="theexkzv_Model.tbl_pincode">
+        <MappingFragment StoreEntitySet="tbl_pincode">
+          <ScalarProperty Name="pincode_id" ColumnName="pincode_id" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="locality" ColumnName="locality" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="comm1" ColumnName="comm1" />
+          <ScalarProperty Name="comm2" ColumnName="comm2" />
+          <ScalarProperty Name="comm3" ColumnName="comm3" />
+          <ScalarProperty Name="comm4" ColumnName="comm4" />
+          <ScalarProperty Name="comm5" ColumnName="comm5" />
+          <ScalarProperty Name="comm6" ColumnName="comm6" />
+          <ScalarProperty Name="comm7" ColumnName="comm7" />
+          <ScalarProperty Name="comm8" ColumnName="comm8" />
+          <ScalarProperty Name="comm9" ColumnName="comm9" />
+          <ScalarProperty Name="comm10" ColumnName="comm10" />
+          <ScalarProperty Name="inserted_by" ColumnName="inserted_by" />
+          <ScalarProperty Name="inserted_dt" ColumnName="inserted_dt" />
+          <ScalarProperty Name="lstinserted_by" ColumnName="lstinserted_by" />
+          <ScalarProperty Name="lstinserted_dt" ColumnName="lstinserted_dt" />
+          <ScalarProperty Name="delindex" ColumnName="delindex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="upgrades">
+      <EntityTypeMapping TypeName="theexkzv_Model.upgrade">
+        <MappingFragment StoreEntitySet="upgrade">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="upgrade_details" ColumnName="upgrade_details" />
+          <ScalarProperty Name="inbox_id" ColumnName="inbox_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypeMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.UserTypeMaster">
+        <MappingFragment StoreEntitySet="UserTypeMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZipCodeMappings">
+      <EntityTypeMapping TypeName="theexkzv_Model.ZipCodeMapping">
+        <MappingFragment StoreEntitySet="ZipCodeMapping">
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="EthnicityId" ColumnName="EthnicityId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FingerprintDatas">
+      <EntityTypeMapping TypeName="theexkzv_Model.FingerprintData">
+        <MappingFragment StoreEntitySet="FingerprintData">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Elearning" FunctionName="theexkzv_Model.Store.Elearning" />
+    <FunctionImportMapping FunctionImportName="GenerateQuetionPaper" FunctionName="theexkzv_Model.Store.GenerateQuetionPaper" />
+    <FunctionImportMapping FunctionImportName="getPaperDetails" FunctionName="theexkzv_Model.Store.getPaperDetails" />
+    <FunctionImportMapping FunctionImportName="getPaperList" FunctionName="theexkzv_Model.Store.getPaperList" />
+    <FunctionImportMapping FunctionImportName="getPaperListbyday" FunctionName="theexkzv_Model.Store.getPaperListbyday" />
+    <FunctionImportMapping FunctionImportName="Select_Admin" FunctionName="theexkzv_Model.Store.Select_Admin" />
+    <FunctionImportMapping FunctionImportName="Select_SuperAdmin" FunctionName="theexkzv_Model.Store.Select_SuperAdmin" />
+    <FunctionImportMapping FunctionImportName="CheckRecordExists" FunctionName="theexkzv_Model.Store.CheckRecordExists" />
+    <FunctionImportMapping FunctionImportName="IMI_Save_finger" FunctionName="theexkzv_Model.Store.IMI_Save_finger" />
+    <EntitySetMapping Name="FingerprintFeatures">
+      <EntityTypeMapping TypeName="theexkzv_Model.FingerprintFeature">
+        <MappingFragment StoreEntitySet="FingerprintFeatures">
+          <ScalarProperty Name="Features" ColumnName="Features" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineCountingReports">
+      <EntityTypeMapping TypeName="theexkzv_Model.LineCountingReport">
+        <MappingFragment StoreEntitySet="LineCountingReport">
+          <ScalarProperty Name="Deletedby" ColumnName="Deletedby" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="RRC" ColumnName="RRC" />
+          <ScalarProperty Name="LRC" ColumnName="LRC" />
+          <ScalarProperty Name="Types" ColumnName="Types" />
+          <ScalarProperty Name="Finger" ColumnName="Finger" />
+          <ScalarProperty Name="Biomatric" ColumnName="Biomatric" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MasterFingerPrintImages">
+      <EntityTypeMapping TypeName="theexkzv_Model.MasterFingerPrintImage">
+        <MappingFragment StoreEntitySet="MasterFingerPrintImages">
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Deletedby" ColumnName="Deletedby" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="FingerPrintImages" ColumnName="FingerPrintImages" />
+          <ScalarProperty Name="Types" ColumnName="Types" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Users">
+      <EntityTypeMapping TypeName="theexkzv_Model.tbl_Users">
+        <MappingFragment StoreEntitySet="tbl_Users">
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="altphoneno" ColumnName="altphoneno" />
+          <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="deleteddatetime" ColumnName="deleteddatetime" />
+          <ScalarProperty Name="updateddatetime" ColumnName="updateddatetime" />
+          <ScalarProperty Name="createddatetime" ColumnName="createddatetime" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeMasters">
+      <EntityTypeMapping TypeName="theexkzv_Model.TypeMaster">
+        <MappingFragment StoreEntitySet="TypeMaster">
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="deletedby" ColumnName="deletedby" />
+          <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+          <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+          <ScalarProperty Name="Types" ColumnName="Types" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="theexkzv_Model.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="Biomatric" ColumnName="Biomatric" />
+          <ScalarProperty Name="Capturedby" ColumnName="Capturedby" />
+          <ScalarProperty Name="DeletedTime" ColumnName="DeletedTime" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="ClientPhoto" ColumnName="ClientPhoto" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="EvalutionType" ColumnName="EvalutionType" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="Handedness" ColumnName="Handedness" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ParentsName" ColumnName="ParentsName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ReferalCode" ColumnName="ReferalCode" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

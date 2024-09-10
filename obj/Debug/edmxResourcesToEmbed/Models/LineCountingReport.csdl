@@ -1,0 +1,851 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="theexkzv_Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminTbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UPdateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <Property Name="ResetPasswordToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResetPasswordExpiry" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BiomatricFingerprintMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BiomatricLogId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hand" Type="Int32" />
+    <Property Name="FingerType" Type="Int32" />
+    <Property Name="PositionOfFingerprint" Type="Int32" />
+    <Property Name="FingerprintImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BiomatricHand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hand" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="NumberOfFingers" Relationship="Self.FK_NumberOfFinger_BiomatricHand" FromRole="BiomatricHand" ToRole="NumberOfFinger" />
+  </EntityType>
+  <EntityType Name="BloodGroupMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ClientInformations" Relationship="Self.FK_ClientInformation_BloodGroupMaster" FromRole="BloodGroupMaster" ToRole="ClientInformation" />
+  </EntityType>
+  <EntityType Name="CityMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="StateMaster" Relationship="Self.FK_CityMaster_StateMaster" FromRole="CityMaster" ToRole="StateMaster" />
+    <NavigationProperty Name="ClientInformations" Relationship="Self.FK_ClientInformation_CityMaster" FromRole="CityMaster" ToRole="ClientInformation" />
+    <NavigationProperty Name="ZipCodeMappings" Relationship="Self.FK_ZipCodeMapping_CityMaster" FromRole="CityMaster" ToRole="ZipCodeMapping" />
+  </EntityType>
+  <EntityType Name="ClientInformation">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Biomatric" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FristName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Credits" Type="Int32" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Handedness" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ethnicity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BloodGroup" Type="Int32" />
+    <Property Name="MobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Referances" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="City" Type="Int32" />
+    <Property Name="Zipcode" Type="Int32" />
+    <Property Name="EvalutionType" Type="Int32" />
+    <Property Name="Languages" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="ClientPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <Property Name="Capturedby" Type="Int32" />
+    <Property Name="Updatedby" Type="Int32" />
+    <Property Name="Deletedby" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReferalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VerificationToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmailVerified" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AppoimentDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="BloodGroupMaster" Relationship="Self.FK_ClientInformation_BloodGroupMaster" FromRole="ClientInformation" ToRole="BloodGroupMaster" />
+    <NavigationProperty Name="CityMaster" Relationship="Self.FK_ClientInformation_CityMaster" FromRole="ClientInformation" ToRole="CityMaster" />
+    <NavigationProperty Name="EvaluationTypeMaster" Relationship="Self.FK_ClientInformation_EvaluationTypeMaster" FromRole="ClientInformation" ToRole="EvaluationTypeMaster" />
+    <NavigationProperty Name="GenderMaster" Relationship="Self.FK_ClientInformation_GenderMaster" FromRole="ClientInformation" ToRole="GenderMaster" />
+    <NavigationProperty Name="EvaluationTypeMaster1" Relationship="Self.FK_ClientInformation_LanguagesMaster" FromRole="ClientInformation" ToRole="EvaluationTypeMaster" />
+    <NavigationProperty Name="StateMaster" Relationship="Self.FK_ClientInformation_StateMaster" FromRole="ClientInformation" ToRole="StateMaster" />
+    <NavigationProperty Name="ZipCodeMapping" Relationship="Self.FK_ClientInformation_ZipCodeMapping" FromRole="ClientInformation" ToRole="ZipCodeMapping" />
+  </EntityType>
+  <EntityType Name="ConsultantInformation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConsultantId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FistName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dob" Type="DateTime" Precision="0" />
+    <Property Name="Usertype" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Zipcode" Type="Int32" />
+    <Property Name="ContactNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ConsultantImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="DeleteBy" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UPdateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <Property Name="Biomatric" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="inboxes" Relationship="Self.FK__inbox__sender_id__18EBB532" FromRole="ConsultantInformation" ToRole="inbox" />
+    <NavigationProperty Name="inboxes1" Relationship="Self.FK__inbox__sender_id__3493CFA7" FromRole="ConsultantInformation" ToRole="inbox" />
+    <NavigationProperty Name="inboxes2" Relationship="Self.FK__inbox__sender_id__6D0D32F4" FromRole="ConsultantInformation" ToRole="inbox" />
+    <NavigationProperty Name="ConsultantInformation1" Relationship="Self.FK_ConsultantInformation_Citymaster" FromRole="ConsultantInformation" ToRole="ConsultantInformation1" />
+    <NavigationProperty Name="ConsultantInformation2" Relationship="Self.FK_ConsultantInformation_Citymaster" FromRole="ConsultantInformation1" ToRole="ConsultantInformation" />
+    <NavigationProperty Name="ConsultantInformation11" Relationship="Self.FK_ConsultantInformation_ConsultantInformation" FromRole="ConsultantInformation" ToRole="ConsultantInformation1" />
+    <NavigationProperty Name="ConsultantInformation3" Relationship="Self.FK_ConsultantInformation_ConsultantInformation" FromRole="ConsultantInformation1" ToRole="ConsultantInformation" />
+  </EntityType>
+  <EntityType Name="EthnicityMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ethnicity" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="StateMasters" Relationship="Self.FK_StateMaster_EthnicityMaster" FromRole="EthnicityMaster" ToRole="StateMaster" />
+    <NavigationProperty Name="ZipCodeMappings" Relationship="Self.FK_ZipCodeMapping_EthnicityMaster" FromRole="EthnicityMaster" ToRole="ZipCodeMapping" />
+  </EntityType>
+  <EntityType Name="EvaluationTypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EvalutionType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Createdby" Type="DateTime" Precision="3" />
+    <Property Name="Updatedby" Type="DateTime" Precision="3" />
+    <Property Name="Deletedby" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ClientInformations" Relationship="Self.FK_ClientInformation_EvaluationTypeMaster" FromRole="EvaluationTypeMaster" ToRole="ClientInformation" />
+    <NavigationProperty Name="ClientInformations1" Relationship="Self.FK_ClientInformation_LanguagesMaster" FromRole="EvaluationTypeMaster" ToRole="ClientInformation" />
+  </EntityType>
+  <EntityType Name="GenderMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ClientInformations" Relationship="Self.FK_ClientInformation_GenderMaster" FromRole="GenderMaster" ToRole="ClientInformation" />
+  </EntityType>
+  <EntityType Name="inbox">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sender_id" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UPdateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ConsultantInformation" Relationship="Self.FK__inbox__sender_id__18EBB532" FromRole="inbox" ToRole="ConsultantInformation" />
+    <NavigationProperty Name="ConsultantInformation1" Relationship="Self.FK__inbox__sender_id__3493CFA7" FromRole="inbox" ToRole="ConsultantInformation" />
+    <NavigationProperty Name="ConsultantInformation2" Relationship="Self.FK__inbox__sender_id__6D0D32F4" FromRole="inbox" ToRole="ConsultantInformation" />
+    <NavigationProperty Name="synopses" Relationship="Self.FK__synopsis__inbox___1AD3FDA4" FromRole="inbox" ToRole="synopsis" />
+    <NavigationProperty Name="synopses1" Relationship="Self.FK__synopsis__inbox___367C1819" FromRole="inbox" ToRole="synopsis" />
+    <NavigationProperty Name="synopses2" Relationship="Self.FK__synopsis__inbox___73BA3083" FromRole="inbox" ToRole="synopsis" />
+    <NavigationProperty Name="upgrades" Relationship="Self.FK__upgrade__inbox_i__1BC821DD" FromRole="inbox" ToRole="upgrade" />
+    <NavigationProperty Name="upgrades1" Relationship="Self.FK__upgrade__inbox_i__37703C52" FromRole="inbox" ToRole="upgrade" />
+    <NavigationProperty Name="upgrades2" Relationship="Self.FK__upgrade__inbox_i__74AE54BC" FromRole="inbox" ToRole="upgrade" />
+  </EntityType>
+  <EntityType Name="LanguagesMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Languages" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="NumberOfFinger">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumberOfFinger1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Hand" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BiomatricHand" Relationship="Self.FK_NumberOfFinger_BiomatricHand" FromRole="NumberOfFinger" ToRole="BiomatricHand" />
+    <NavigationProperty Name="PositionOfFingerprints" Relationship="Self.FK_PositionOfFingerprint_NumberOfFinger" FromRole="NumberOfFinger" ToRole="PositionOfFingerprint" />
+  </EntityType>
+  <EntityType Name="PermissionMaster">
+    <Key>
+      <PropertyRef Name="PermissionId" />
+    </Key>
+    <Property Name="PermissionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="RoleOfPermissionMappings" Relationship="Self.FK_RoleOfPermissionMapping_PermissionMaster" FromRole="PermissionMaster" ToRole="RoleOfPermissionMapping" />
+  </EntityType>
+  <EntityType Name="PositionOfFingerprint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PositionOfFingerprint1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumberOfFinger" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="NumberOfFinger1" Relationship="Self.FK_PositionOfFingerprint_NumberOfFinger" FromRole="PositionOfFingerprint" ToRole="NumberOfFinger" />
+  </EntityType>
+  <EntityType Name="RoleMaster">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="RoleOfPermissionMapping" Relationship="Self.FK_RoleOfPermissionMapping_RoleMaster" FromRole="RoleMaster" ToRole="RoleOfPermissionMapping" />
+  </EntityType>
+  <EntityType Name="RoleOfPermissionMapping">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PermissionId" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PermissionMaster" Relationship="Self.FK_RoleOfPermissionMapping_PermissionMaster" FromRole="RoleOfPermissionMapping" ToRole="PermissionMaster" />
+    <NavigationProperty Name="RoleMaster" Relationship="Self.FK_RoleOfPermissionMapping_RoleMaster" FromRole="RoleOfPermissionMapping" ToRole="RoleMaster" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EthnicityId" Type="Int32" />
+    <Property Name="State" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CityMasters" Relationship="Self.FK_CityMaster_StateMaster" FromRole="StateMaster" ToRole="CityMaster" />
+    <NavigationProperty Name="ClientInformations" Relationship="Self.FK_ClientInformation_StateMaster" FromRole="StateMaster" ToRole="ClientInformation" />
+    <NavigationProperty Name="EthnicityMaster" Relationship="Self.FK_StateMaster_EthnicityMaster" FromRole="StateMaster" ToRole="EthnicityMaster" />
+    <NavigationProperty Name="ZipCodeMappings" Relationship="Self.FK_ZipCodeMapping_StateMaster" FromRole="StateMaster" ToRole="ZipCodeMapping" />
+  </EntityType>
+  <EntityType Name="SuperAdminTbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SuperAdmin" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UPdateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="synopsis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="inbox_id" Type="Int32" />
+    <NavigationProperty Name="inbox" Relationship="Self.FK__synopsis__inbox___1AD3FDA4" FromRole="synopsis" ToRole="inbox" />
+    <NavigationProperty Name="inbox1" Relationship="Self.FK__synopsis__inbox___367C1819" FromRole="synopsis" ToRole="inbox" />
+    <NavigationProperty Name="inbox2" Relationship="Self.FK__synopsis__inbox___73BA3083" FromRole="synopsis" ToRole="inbox" />
+  </EntityType>
+  <EntityType Name="tbl_pincode">
+    <Key>
+      <PropertyRef Name="pincode_id" />
+    </Key>
+    <Property Name="pincode_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pincode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="locality" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm4" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm5" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm6" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm7" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm8" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm9" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="comm10" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="inserted_by" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="inserted_dt" Type="DateTime" Precision="3" />
+    <Property Name="lstinserted_by" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lstinserted_dt" Type="DateTime" Precision="3" />
+    <Property Name="delindex" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="upgrade">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="upgrade_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="inbox_id" Type="Int32" />
+    <NavigationProperty Name="inbox" Relationship="Self.FK__upgrade__inbox_i__1BC821DD" FromRole="upgrade" ToRole="inbox" />
+    <NavigationProperty Name="inbox1" Relationship="Self.FK__upgrade__inbox_i__37703C52" FromRole="upgrade" ToRole="inbox" />
+    <NavigationProperty Name="inbox2" Relationship="Self.FK__upgrade__inbox_i__74AE54BC" FromRole="upgrade" ToRole="inbox" />
+  </EntityType>
+  <EntityType Name="UserTypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ZipCodeMapping">
+    <Key>
+      <PropertyRef Name="ZipCode" />
+    </Key>
+    <Property Name="ZipCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EthnicityId" Type="Int32" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CityMaster" Relationship="Self.FK_ZipCodeMapping_CityMaster" FromRole="ZipCodeMapping" ToRole="CityMaster" />
+    <NavigationProperty Name="ClientInformations" Relationship="Self.FK_ClientInformation_ZipCodeMapping" FromRole="ZipCodeMapping" ToRole="ClientInformation" />
+    <NavigationProperty Name="EthnicityMaster" Relationship="Self.FK_ZipCodeMapping_EthnicityMaster" FromRole="ZipCodeMapping" ToRole="EthnicityMaster" />
+    <NavigationProperty Name="StateMaster" Relationship="Self.FK_ZipCodeMapping_StateMaster" FromRole="ZipCodeMapping" ToRole="StateMaster" />
+  </EntityType>
+  <EntityType Name="LineCountingReport">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="Biomatric" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Finger" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Types" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfLine" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="DeletedTime" Type="DateTime" Precision="3" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="Updatedby" Type="Int32" />
+    <Property Name="Deletedby" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_NumberOfFinger_BiomatricHand">
+    <End Role="BiomatricHand" Type="Self.BiomatricHand" Multiplicity="0..1" />
+    <End Role="NumberOfFinger" Type="Self.NumberOfFinger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BiomatricHand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NumberOfFinger">
+        <PropertyRef Name="Hand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientInformation_BloodGroupMaster">
+    <End Role="BloodGroupMaster" Type="Self.BloodGroupMaster" Multiplicity="0..1" />
+    <End Role="ClientInformation" Type="Self.ClientInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BloodGroupMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientInformation">
+        <PropertyRef Name="BloodGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CityMaster_StateMaster">
+    <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="0..1" />
+    <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CityMaster">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientInformation_CityMaster">
+    <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+    <End Role="ClientInformation" Type="Self.ClientInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CityMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientInformation">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZipCodeMapping_CityMaster">
+    <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="0..1" />
+    <End Role="ZipCodeMapping" Type="Self.ZipCodeMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CityMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZipCodeMapping">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientInformation_EvaluationTypeMaster">
+    <End Role="EvaluationTypeMaster" Type="Self.EvaluationTypeMaster" Multiplicity="0..1" />
+    <End Role="ClientInformation" Type="Self.ClientInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvaluationTypeMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientInformation">
+        <PropertyRef Name="EvalutionType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientInformation_GenderMaster">
+    <End Role="GenderMaster" Type="Self.GenderMaster" Multiplicity="0..1" />
+    <End Role="ClientInformation" Type="Self.ClientInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientInformation">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientInformation_LanguagesMaster">
+    <End Role="EvaluationTypeMaster" Type="Self.EvaluationTypeMaster" Multiplicity="0..1" />
+    <End Role="ClientInformation" Type="Self.ClientInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EvaluationTypeMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientInformation">
+        <PropertyRef Name="EvalutionType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientInformation_StateMaster">
+    <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="0..1" />
+    <End Role="ClientInformation" Type="Self.ClientInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientInformation">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientInformation_ZipCodeMapping">
+    <End Role="ZipCodeMapping" Type="Self.ZipCodeMapping" Multiplicity="0..1" />
+    <End Role="ClientInformation" Type="Self.ClientInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZipCodeMapping">
+        <PropertyRef Name="ZipCode" />
+      </Principal>
+      <Dependent Role="ClientInformation">
+        <PropertyRef Name="Zipcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__inbox__sender_id__18EBB532">
+    <End Role="ConsultantInformation" Type="Self.ConsultantInformation" Multiplicity="0..1" />
+    <End Role="inbox" Type="Self.inbox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConsultantInformation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="inbox">
+        <PropertyRef Name="sender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__inbox__sender_id__3493CFA7">
+    <End Role="ConsultantInformation" Type="Self.ConsultantInformation" Multiplicity="0..1" />
+    <End Role="inbox" Type="Self.inbox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConsultantInformation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="inbox">
+        <PropertyRef Name="sender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__inbox__sender_id__6D0D32F4">
+    <End Role="ConsultantInformation" Type="Self.ConsultantInformation" Multiplicity="0..1" />
+    <End Role="inbox" Type="Self.inbox" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConsultantInformation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="inbox">
+        <PropertyRef Name="sender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConsultantInformation_Citymaster">
+    <End Role="ConsultantInformation" Type="Self.ConsultantInformation" Multiplicity="1" />
+    <End Role="ConsultantInformation1" Type="Self.ConsultantInformation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ConsultantInformation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ConsultantInformation1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConsultantInformation_ConsultantInformation">
+    <End Role="ConsultantInformation" Type="Self.ConsultantInformation" Multiplicity="1" />
+    <End Role="ConsultantInformation1" Type="Self.ConsultantInformation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ConsultantInformation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ConsultantInformation1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateMaster_EthnicityMaster">
+    <End Role="EthnicityMaster" Type="Self.EthnicityMaster" Multiplicity="0..1" />
+    <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EthnicityMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StateMaster">
+        <PropertyRef Name="EthnicityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZipCodeMapping_EthnicityMaster">
+    <End Role="EthnicityMaster" Type="Self.EthnicityMaster" Multiplicity="0..1" />
+    <End Role="ZipCodeMapping" Type="Self.ZipCodeMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EthnicityMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZipCodeMapping">
+        <PropertyRef Name="EthnicityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__synopsis__inbox___1AD3FDA4">
+    <End Role="inbox" Type="Self.inbox" Multiplicity="0..1" />
+    <End Role="synopsis" Type="Self.synopsis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inbox">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="synopsis">
+        <PropertyRef Name="inbox_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__synopsis__inbox___367C1819">
+    <End Role="inbox" Type="Self.inbox" Multiplicity="0..1" />
+    <End Role="synopsis" Type="Self.synopsis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inbox">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="synopsis">
+        <PropertyRef Name="inbox_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__synopsis__inbox___73BA3083">
+    <End Role="inbox" Type="Self.inbox" Multiplicity="0..1" />
+    <End Role="synopsis" Type="Self.synopsis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inbox">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="synopsis">
+        <PropertyRef Name="inbox_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__upgrade__inbox_i__1BC821DD">
+    <End Role="inbox" Type="Self.inbox" Multiplicity="0..1" />
+    <End Role="upgrade" Type="Self.upgrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inbox">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="upgrade">
+        <PropertyRef Name="inbox_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__upgrade__inbox_i__37703C52">
+    <End Role="inbox" Type="Self.inbox" Multiplicity="0..1" />
+    <End Role="upgrade" Type="Self.upgrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inbox">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="upgrade">
+        <PropertyRef Name="inbox_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__upgrade__inbox_i__74AE54BC">
+    <End Role="inbox" Type="Self.inbox" Multiplicity="0..1" />
+    <End Role="upgrade" Type="Self.upgrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inbox">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="upgrade">
+        <PropertyRef Name="inbox_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PositionOfFingerprint_NumberOfFinger">
+    <End Role="NumberOfFinger" Type="Self.NumberOfFinger" Multiplicity="0..1" />
+    <End Role="PositionOfFingerprint" Type="Self.PositionOfFingerprint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NumberOfFinger">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PositionOfFingerprint">
+        <PropertyRef Name="NumberOfFinger" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleOfPermissionMapping_PermissionMaster">
+    <End Role="PermissionMaster" Type="Self.PermissionMaster" Multiplicity="0..1" />
+    <End Role="RoleOfPermissionMapping" Type="Self.RoleOfPermissionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionMaster">
+        <PropertyRef Name="PermissionId" />
+      </Principal>
+      <Dependent Role="RoleOfPermissionMapping">
+        <PropertyRef Name="PermissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleOfPermissionMapping_RoleMaster">
+    <End Role="RoleMaster" Type="Self.RoleMaster" Multiplicity="1" />
+    <End Role="RoleOfPermissionMapping" Type="Self.RoleOfPermissionMapping" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="RoleMaster">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="RoleOfPermissionMapping">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZipCodeMapping_StateMaster">
+    <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="0..1" />
+    <End Role="ZipCodeMapping" Type="Self.ZipCodeMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZipCodeMapping">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="theexkzv_Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminTbls" EntityType="Self.AdminTbl" />
+    <EntitySet Name="BiomatricFingerprintMappings" EntityType="Self.BiomatricFingerprintMapping" />
+    <EntitySet Name="BiomatricHands" EntityType="Self.BiomatricHand" />
+    <EntitySet Name="BloodGroupMasters" EntityType="Self.BloodGroupMaster" />
+    <EntitySet Name="CityMasters" EntityType="Self.CityMaster" />
+    <EntitySet Name="ClientInformations" EntityType="Self.ClientInformation" />
+    <EntitySet Name="ConsultantInformations" EntityType="Self.ConsultantInformation" />
+    <EntitySet Name="EthnicityMasters" EntityType="Self.EthnicityMaster" />
+    <EntitySet Name="EvaluationTypeMasters" EntityType="Self.EvaluationTypeMaster" />
+    <EntitySet Name="GenderMasters" EntityType="Self.GenderMaster" />
+    <EntitySet Name="inboxes" EntityType="Self.inbox" />
+    <EntitySet Name="LanguagesMasters" EntityType="Self.LanguagesMaster" />
+    <EntitySet Name="NumberOfFingers" EntityType="Self.NumberOfFinger" />
+    <EntitySet Name="PermissionMasters" EntityType="Self.PermissionMaster" />
+    <EntitySet Name="PositionOfFingerprints" EntityType="Self.PositionOfFingerprint" />
+    <EntitySet Name="RoleMasters" EntityType="Self.RoleMaster" />
+    <EntitySet Name="RoleOfPermissionMappings" EntityType="Self.RoleOfPermissionMapping" />
+    <EntitySet Name="StateMasters" EntityType="Self.StateMaster" />
+    <EntitySet Name="SuperAdminTbls" EntityType="Self.SuperAdminTbl" />
+    <EntitySet Name="synopses" EntityType="Self.synopsis" />
+    <EntitySet Name="tbl_pincode" EntityType="Self.tbl_pincode" />
+    <EntitySet Name="upgrades" EntityType="Self.upgrade" />
+    <EntitySet Name="UserTypeMasters" EntityType="Self.UserTypeMaster" />
+    <EntitySet Name="ZipCodeMappings" EntityType="Self.ZipCodeMapping" />
+    <EntitySet Name="LineCountingReports" EntityType="Self.LineCountingReport" />
+    <AssociationSet Name="FK_NumberOfFinger_BiomatricHand" Association="Self.FK_NumberOfFinger_BiomatricHand">
+      <End Role="BiomatricHand" EntitySet="BiomatricHands" />
+      <End Role="NumberOfFinger" EntitySet="NumberOfFingers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientInformation_BloodGroupMaster" Association="Self.FK_ClientInformation_BloodGroupMaster">
+      <End Role="BloodGroupMaster" EntitySet="BloodGroupMasters" />
+      <End Role="ClientInformation" EntitySet="ClientInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CityMaster_StateMaster" Association="Self.FK_CityMaster_StateMaster">
+      <End Role="StateMaster" EntitySet="StateMasters" />
+      <End Role="CityMaster" EntitySet="CityMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientInformation_CityMaster" Association="Self.FK_ClientInformation_CityMaster">
+      <End Role="CityMaster" EntitySet="CityMasters" />
+      <End Role="ClientInformation" EntitySet="ClientInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZipCodeMapping_CityMaster" Association="Self.FK_ZipCodeMapping_CityMaster">
+      <End Role="CityMaster" EntitySet="CityMasters" />
+      <End Role="ZipCodeMapping" EntitySet="ZipCodeMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientInformation_EvaluationTypeMaster" Association="Self.FK_ClientInformation_EvaluationTypeMaster">
+      <End Role="EvaluationTypeMaster" EntitySet="EvaluationTypeMasters" />
+      <End Role="ClientInformation" EntitySet="ClientInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientInformation_GenderMaster" Association="Self.FK_ClientInformation_GenderMaster">
+      <End Role="GenderMaster" EntitySet="GenderMasters" />
+      <End Role="ClientInformation" EntitySet="ClientInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientInformation_LanguagesMaster" Association="Self.FK_ClientInformation_LanguagesMaster">
+      <End Role="EvaluationTypeMaster" EntitySet="EvaluationTypeMasters" />
+      <End Role="ClientInformation" EntitySet="ClientInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientInformation_StateMaster" Association="Self.FK_ClientInformation_StateMaster">
+      <End Role="StateMaster" EntitySet="StateMasters" />
+      <End Role="ClientInformation" EntitySet="ClientInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientInformation_ZipCodeMapping" Association="Self.FK_ClientInformation_ZipCodeMapping">
+      <End Role="ZipCodeMapping" EntitySet="ZipCodeMappings" />
+      <End Role="ClientInformation" EntitySet="ClientInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__inbox__sender_id__18EBB532" Association="Self.FK__inbox__sender_id__18EBB532">
+      <End Role="ConsultantInformation" EntitySet="ConsultantInformations" />
+      <End Role="inbox" EntitySet="inboxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__inbox__sender_id__3493CFA7" Association="Self.FK__inbox__sender_id__3493CFA7">
+      <End Role="ConsultantInformation" EntitySet="ConsultantInformations" />
+      <End Role="inbox" EntitySet="inboxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__inbox__sender_id__6D0D32F4" Association="Self.FK__inbox__sender_id__6D0D32F4">
+      <End Role="ConsultantInformation" EntitySet="ConsultantInformations" />
+      <End Role="inbox" EntitySet="inboxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsultantInformation_Citymaster" Association="Self.FK_ConsultantInformation_Citymaster">
+      <End Role="ConsultantInformation" EntitySet="ConsultantInformations" />
+      <End Role="ConsultantInformation1" EntitySet="ConsultantInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsultantInformation_ConsultantInformation" Association="Self.FK_ConsultantInformation_ConsultantInformation">
+      <End Role="ConsultantInformation" EntitySet="ConsultantInformations" />
+      <End Role="ConsultantInformation1" EntitySet="ConsultantInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateMaster_EthnicityMaster" Association="Self.FK_StateMaster_EthnicityMaster">
+      <End Role="EthnicityMaster" EntitySet="EthnicityMasters" />
+      <End Role="StateMaster" EntitySet="StateMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZipCodeMapping_EthnicityMaster" Association="Self.FK_ZipCodeMapping_EthnicityMaster">
+      <End Role="EthnicityMaster" EntitySet="EthnicityMasters" />
+      <End Role="ZipCodeMapping" EntitySet="ZipCodeMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__synopsis__inbox___1AD3FDA4" Association="Self.FK__synopsis__inbox___1AD3FDA4">
+      <End Role="inbox" EntitySet="inboxes" />
+      <End Role="synopsis" EntitySet="synopses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__synopsis__inbox___367C1819" Association="Self.FK__synopsis__inbox___367C1819">
+      <End Role="inbox" EntitySet="inboxes" />
+      <End Role="synopsis" EntitySet="synopses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__synopsis__inbox___73BA3083" Association="Self.FK__synopsis__inbox___73BA3083">
+      <End Role="inbox" EntitySet="inboxes" />
+      <End Role="synopsis" EntitySet="synopses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__upgrade__inbox_i__1BC821DD" Association="Self.FK__upgrade__inbox_i__1BC821DD">
+      <End Role="inbox" EntitySet="inboxes" />
+      <End Role="upgrade" EntitySet="upgrades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__upgrade__inbox_i__37703C52" Association="Self.FK__upgrade__inbox_i__37703C52">
+      <End Role="inbox" EntitySet="inboxes" />
+      <End Role="upgrade" EntitySet="upgrades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__upgrade__inbox_i__74AE54BC" Association="Self.FK__upgrade__inbox_i__74AE54BC">
+      <End Role="inbox" EntitySet="inboxes" />
+      <End Role="upgrade" EntitySet="upgrades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PositionOfFingerprint_NumberOfFinger" Association="Self.FK_PositionOfFingerprint_NumberOfFinger">
+      <End Role="NumberOfFinger" EntitySet="NumberOfFingers" />
+      <End Role="PositionOfFingerprint" EntitySet="PositionOfFingerprints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleOfPermissionMapping_PermissionMaster" Association="Self.FK_RoleOfPermissionMapping_PermissionMaster">
+      <End Role="PermissionMaster" EntitySet="PermissionMasters" />
+      <End Role="RoleOfPermissionMapping" EntitySet="RoleOfPermissionMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleOfPermissionMapping_RoleMaster" Association="Self.FK_RoleOfPermissionMapping_RoleMaster">
+      <End Role="RoleMaster" EntitySet="RoleMasters" />
+      <End Role="RoleOfPermissionMapping" EntitySet="RoleOfPermissionMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZipCodeMapping_StateMaster" Association="Self.FK_ZipCodeMapping_StateMaster">
+      <End Role="StateMaster" EntitySet="StateMasters" />
+      <End Role="ZipCodeMapping" EntitySet="ZipCodeMappings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
